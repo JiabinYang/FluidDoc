@@ -27,6 +27,7 @@ BackwardStrategy是描述动态图反向执行的策略，主要功能是定义�
     x = np.ones([2, 2], np.float32)
     with fluid.dygraph.guard():
         x_var = fluid.dygraph.to_variable(x)
+        x_var.stop_gradient=False
         sums_inputs = []
         # 这里x_var将作为多个输入scale的输入
         for _ in range(10):
